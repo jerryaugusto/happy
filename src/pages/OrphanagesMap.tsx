@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 
 import mapMarker from '../images/map-marker.svg';
 import '../styles/pages/orphanage-map.css';
@@ -25,15 +25,13 @@ function OrphanagesMap() {
       </aside>
 
       <MapContainer
-        className="marker-map"
-        center={[
-          process.env.REACT_APP_LATITUDE_COORDINATE,
-          process.env.REACT_APP_LONGITUDE_COORDINATE,
-        ]}
+        center={[-15.0785764, -57.1802677]}
         zoom={15}
+        style={{ width: '100%', height: '100%' }}
       >
         <TileLayer
-          url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+          attribution='&copy; <a href="https://www.mapbox.com/feedback/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
         />
       </MapContainer>
 
